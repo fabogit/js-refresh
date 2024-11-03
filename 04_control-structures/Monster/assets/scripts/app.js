@@ -10,6 +10,12 @@ let hasBonusLife = true;
 
 adjustHealthBars(chosenMaxLife);
 
+function reset() {
+	currentMonsterHealth = chosenMaxLife;
+	currentPlayerHealth = chosenMaxLife;
+	resetGame(chosenMaxLife);
+}
+
 function attackMonster(mode) {
 	let maxDamage;
 	if (mode === "ATTACK") {
@@ -42,6 +48,10 @@ function endRound() {
 	} else if (currentPlayerHealth <= 0 && currentMonsterHealth <= 0) {
 		alert("A draw!");
 	}
+
+	if (currentMonsterHealth <= 0 || currentPlayerHealth <= 0) {
+		reset();
+	}
 }
 
 function attackHandler() {
@@ -55,7 +65,7 @@ function strongAttackHandler() {
 function healPlayerHandler() {
 	let healValue;
 	if (currentPlayerHealth >= chosenMaxLife - HEAL_VALUE) {
-		alert("Cant heal over max life");
+		alert("Can't heal over max life");
 		healValue = chosenMaxLife - currentPlayerHealth;
 	} else {
 		healValue = HEAL_VALUE;
