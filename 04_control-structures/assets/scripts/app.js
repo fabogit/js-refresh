@@ -28,32 +28,43 @@ function writeToLog(
 }
 
 function calculateResult(calculationType) {
+	const enteredNumber = getUserNumberInput();
 	if (
-		calculationType === "ADD" ||
-		calculationType === "SUBTRACT" ||
-		calculationType === "MULTIPLY" ||
-		calculationType === "DIVIDE"
+		calculationType !== "ADD" &&
+		calculationType !== "SUBTRACT" &&
+		calculationType !== "MULTIPLY" &&
+		calculationType !== "DIVIDE" ||
+		!enteredNumber
 	) {
-		const enteredNumber = getUserNumberInput();
-		const initialResult = currentResult;
-		let mathOperator;
-		if (calculationType === "ADD") {
-			currentResult += enteredNumber;
-			mathOperator = "+";
-		} else if (calculationType === "SUBTRACT") {
-			currentResult -= enteredNumber;
-			mathOperator = "-";
-		} else if (calculationType === "MULTIPLY") {
-			currentResult *= enteredNumber;
-			mathOperator = "*";
-		} else if (calculationType === "DIVIDE") {
-			currentResult /= enteredNumber;
-			mathOperator = "*";
-		}
-
-		createAndWriteOutput(mathOperator, initialResult, enteredNumber);
-		writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+		return;
 	}
+
+	// if (
+	// 	calculationType === "ADD" ||
+	// 	calculationType === "SUBTRACT" ||
+	// 	calculationType === "MULTIPLY" ||
+	// 	calculationType === "DIVIDE"
+	// ) {
+	// 	// Code to run
+	// }
+	const initialResult = currentResult;
+	let mathOperator;
+	if (calculationType === "ADD") {
+		currentResult += enteredNumber;
+		mathOperator = "+";
+	} else if (calculationType === "SUBTRACT") {
+		currentResult -= enteredNumber;
+		mathOperator = "-";
+	} else if (calculationType === "MULTIPLY") {
+		currentResult *= enteredNumber;
+		mathOperator = "*";
+	} else if (calculationType === "DIVIDE") {
+		currentResult /= enteredNumber;
+		mathOperator = "*";
+	}
+
+	createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+	writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
 
 
