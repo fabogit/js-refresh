@@ -28,24 +28,32 @@ function writeToLog(
 }
 
 function calculateResult(calculationType) {
-	const enteredNumber = getUserNumberInput();
-	const initialResult = currentResult;
-	let mathOperator;
-	if (calculationType === "ADD") {
-		currentResult += enteredNumber;
-		mathOperator = "+";
-	} else if (calculationType === "SUBTRACT") {
-		currentResult -= enteredNumber;
-		mathOperator = "-";
-	} else if (calculationType === "MULTIPLY") {
-		currentResult *= enteredNumber;
-		mathOperator = "*";
-	} else if (calculationType === "DIVIDE") {
-		currentResult /= enteredNumber;
-		mathOperator = "*";
+	if (
+		calculationType === "ADD" ||
+		calculationType === "SUBTRACT" ||
+		calculationType === "MULTIPLY" ||
+		calculationType === "DIVIDE"
+	) {
+		const enteredNumber = getUserNumberInput();
+		const initialResult = currentResult;
+		let mathOperator;
+		if (calculationType === "ADD") {
+			currentResult += enteredNumber;
+			mathOperator = "+";
+		} else if (calculationType === "SUBTRACT") {
+			currentResult -= enteredNumber;
+			mathOperator = "-";
+		} else if (calculationType === "MULTIPLY") {
+			currentResult *= enteredNumber;
+			mathOperator = "*";
+		} else if (calculationType === "DIVIDE") {
+			currentResult /= enteredNumber;
+			mathOperator = "*";
+		}
+
+		createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+		writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 	}
-	createAndWriteOutput(mathOperator, initialResult, enteredNumber);
-	writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
 
 
