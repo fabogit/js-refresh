@@ -8,13 +8,21 @@ li.textContent = li.textContent + ' (Changed!)';
 
 const body = document.body;
 const ulList = body.querySelector('ul');
-console.dir(ulList)
+console.dir(ulList);
+
+const listNodes = ulList.childNodes; // text nodes spaces and line break
+const secondListElement = ulList.children[1]; // tagged html elements
+
+const firstNode = ulList.firstChild;
+const firstElem = ulList.firstElementChild;
+
+const lastNode = ulList.lastChild;
+const lastElem = ulList.lastElementChild;
 
 // no live update just a snapshot
 // const listItemElements = document.querySelectorAll('li');
 // does live update
 const listItemElements = document.getElementsByTagName('li');
-
 
 for (const element of listItemElements) {
 	console.dir(element);
