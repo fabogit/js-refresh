@@ -10,6 +10,7 @@ const body = document.body;
 const ulList = body.querySelector('ul');
 console.dir(ulList);
 
+// Childrens
 const listNodes = ulList.childNodes; // text nodes spaces and line break
 const secondListElement = ulList.children[1]; // tagged html elements
 
@@ -18,6 +19,14 @@ const firstElem = ulList.firstElementChild;
 
 const lastNode = ulList.lastChild;
 const lastElem = ulList.lastElementChild;
+
+// Parents
+const liFirst = document.querySelector('li:first-of-type');
+liFirst.parentNode; // quite useless
+liFirst.parentElement;
+
+// any ancestor
+liFirst.closest('body');
 
 // no live update just a snapshot
 // const listItemElements = document.querySelectorAll('li');
