@@ -72,3 +72,8 @@ div.insertAdjacentHTML('beforeend', '<p>Something went wrong!</p>');
 const newLi = document.createElement('li');
 newLi.textContent = 'Item 4';
 li.appendChild(newLi);
+const newLiZero = document.createElement('li');
+newLiZero.textContent = 'Item 0';
+ul.prepend(newLiZero);
+ul.lastElementChild.before(newLiZero);
+ul.firstElementChild.replaceWith(newLiZero);
