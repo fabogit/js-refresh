@@ -63,5 +63,12 @@ button.addEventListener('click', () => {
 // replace content and rerender
 // section.innerHTML = '<h2>A New Title</h2>';
 // add to existing
-const newListItem = '<li>Item 4</li>';
+const newListItem = '<li>Item 5</li>';
 li.insertAdjacentHTML('afterend', newListItem);
+
+const div = document.querySelector('div');
+div.insertAdjacentHTML('beforeend', '<p>Something went wrong!</p>');
+
+const newLi = document.createElement('li');
+newLi.textContent = 'Item 4';
+li.appendChild(newLi);
