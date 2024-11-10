@@ -77,3 +77,10 @@ newLiZero.textContent = 'Item 0';
 ul.prepend(newLiZero);
 ul.lastElementChild.before(newLiZero);
 ul.firstElementChild.replaceWith(newLiZero);
+
+// clone
+const clone = ul.cloneNode(true);
+ul.insertAdjacentElement('beforeend', clone);
+
+// remove node.remove()
+// ul.parentElement.removeChild(ul);
