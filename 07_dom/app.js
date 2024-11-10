@@ -59,3 +59,9 @@ button.addEventListener('click', () => {
 	// }
 	section.classList.toggle('invisible');
 });
+
+// replace content and rerender
+// section.innerHTML = '<h2>A New Title</h2>';
+// add to existing
+const newListItem = '<li>Item 4</li>';
+li.insertAdjacentHTML('afterend', newListItem);
