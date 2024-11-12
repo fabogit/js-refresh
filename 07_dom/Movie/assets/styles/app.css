@@ -108,15 +108,18 @@ input:focus {
   border-color: #ff3217;
 }
 
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
 .modal {
   position: fixed;
   z-index: 100;
-  background: white;
-  border-radius: 10px;
   width: 80%;
   top: 30vh;
   left: 10%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   display: none;
 }
 
@@ -187,12 +190,6 @@ input:focus {
   padding: 1rem;
 }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-}
-
 #entry-text {
   width: 40rem;
   margin: 2rem auto;
@@ -246,6 +243,7 @@ input:focus {
   from {
     transform: translateY(-5rem);
   }
+
   to {
     transform: translateY(0);
   }
