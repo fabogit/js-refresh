@@ -1,3 +1,5 @@
+// CREATE
+
 // const numbers = [1, 2, 3];
 // console.log(numbers);
 
@@ -27,9 +29,33 @@
 
 // console.log(personalData[1]);
 
-const hobbies = ['Sports', 'Cooking'];
-hobbies.push('Reading');
-hobbies.unshift('Coding');
-const poppedValue = hobbies.pop();
-hobbies.shift();
-console.log(hobbies);
+// ADD & REMOVE
+
+// const hobbies = ['Sports', 'Cooking'];
+// hobbies.push('Reading');
+// hobbies.unshift('Coding');
+// const poppedValue = hobbies.pop();
+// hobbies.shift();
+// console.log(hobbies);
+
+// SPLICE
+
+// hobbies[1] = 'Coding';
+// // hobbies[5] = 'Reading'; // rarely used
+// console.log(hobbies, hobbies[4]);
+
+// hobbies.splice(1, 0, 'Good Food');
+// console.log(hobbies);
+
+// const removedElements = hobbies.splice(-2, 1);
+// console.log(hobbies);
+
+// APPENDING ARRAYS
+
+// const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+// // const storedResults = testResults.slice(2);
+// const storedResults = testResults.concat([3.99, 2]);
+
+// testResults.push(5.91);
+
+// console.log(storedResults, testResults);
