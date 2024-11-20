@@ -17,14 +17,14 @@
 // console.log(arrayListItems);
 
 // const hobbies = ['Cooking', 'Sports'];
-// const personalData = [33, 'Jesus', {moreDetail: []}];
+// const personalData = [33, 'Jesus', { moreDetail: [] }];
 
 // const analyticsData = [[1, 1.6], [-5.4, 2.1]];
 
 // for (const data of analyticsData) {
-//   for (const dataPoint of data) {
-//     console.log(dataPoint);
-//   }
+// 	for (const dataPoint of data) {
+// 		console.log(dataPoint);
+// 	}
 // }
 
 // console.log(personalData[1]);
@@ -61,13 +61,14 @@
 // console.log(storedResults, testResults);
 
 // // INDEX
+
 // console.log(testResults.indexOf(1.5));
 
 // const personData = [{ name: 'Max' }, { name: 'Manuel' }];
 // console.log(personData.indexOf({ name: 'Manuel' }));
 
 // const manuel = personData.find((person, idx, persons) => {
-//   return person.name === 'Manuel';
+// 	return person.name === 'Manuel';
 // });
 
 // manuel.name = 'Anna';
@@ -75,7 +76,34 @@
 // console.log(manuel, personData);
 
 // const maxIndex = personData.findIndex((person, idx, persons) => {
-//   return person.name === 'Max';
+// 	return person.name === 'Max';
 // });
 
 // console.log(maxIndex);
+
+// FOR EACH AND MAP
+
+// const prices = [10.99, 5.99, 3.99, 6.59];
+// const tax = 0.19;
+// const taxAdjustedPrices = [];
+
+// // for (const price of prices) {
+// //   taxAdjustedPrices.push(price * (1 + tax));
+// // }
+
+// prices.forEach((price, idx, prices) => {
+// 	const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+// 	taxAdjustedPrices.push(priceObj);
+// });
+
+// console.log(taxAdjustedPrices);
+
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+
+const taxAdjustedPrices = prices.map((price, idx, prices) => {
+	const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+	return priceObj;
+});
+
+console.log(prices, taxAdjustedPrices);
