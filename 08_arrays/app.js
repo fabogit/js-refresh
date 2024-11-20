@@ -1,14 +1,14 @@
 // CREATE
 
-// const numbers = [1, 2, 3];
-// console.log(numbers);
+const numbers = [1, 2, 3];
+console.log(numbers);
 
-// const moreNumbers = Array(5, 2);
-// console.log(moreNumbers);
+const moreNumbers = Array(5, 2);
+console.log(moreNumbers);
 
-// // slow performance
-// const yetMoreNumbers = Array.of(1, 2);
-// console.log(yetMoreNumbers);
+// slow performance
+const yetMoreNumbers = Array.of(1, 2);
+console.log(yetMoreNumbers);
 
 // const listItems = document.querySelectorAll('li');
 // console.log(listItems);
@@ -16,87 +16,92 @@
 // const arrayListItems = Array.from(listItems);
 // console.log(arrayListItems);
 
-// const hobbies = ['Cooking', 'Sports'];
-// const personalData = [33, 'Jesus', { moreDetail: [] }];
+// Or just declare it
+const declare = ['Cooking', 'Sports'];
+const personalData = [33, 'Jesus', { moreDetail: [] }];
 
-// const analyticsData = [[1, 1.6], [-5.4, 2.1]];
+const analyticsData = [[1, 1.6], [-5.4, 2.1]];
 
-// for (const data of analyticsData) {
-// 	for (const dataPoint of data) {
-// 		console.log(dataPoint);
-// 	}
-// }
+for (const data of analyticsData) {
+	for (const dataPoint of data) {
+		console.log(dataPoint);
+	}
+}
 
-// console.log(personalData[1]);
+console.log(personalData[1]);
 
 // ADD & REMOVE
 
-// const hobbies = ['Sports', 'Cooking'];
-// hobbies.push('Reading');
-// hobbies.unshift('Coding');
-// const poppedValue = hobbies.pop();
-// hobbies.shift();
-// console.log(hobbies);
+const hobbies = ['Sports', 'Cooking'];
+hobbies.push('Reading');
+hobbies.unshift('Coding');
+const poppedValue = hobbies.pop();
+hobbies.shift();
+console.log(hobbies);
 
 // SPLICE
 
-// hobbies[1] = 'Coding';
-// // hobbies[5] = 'Reading'; // rarely used
-// console.log(hobbies, hobbies[4]);
+hobbies[1] = 'Coding';
+// hobbies[5] = 'Reading'; // rarely used
+console.log(hobbies, hobbies[4]);
 
-// hobbies.splice(1, 0, 'Good Food');
-// console.log(hobbies);
+hobbies.splice(1, 0, 'Good Food');
+console.log(hobbies);
 
-// const removedElements = hobbies.splice(-2, 1);
-// console.log(hobbies);
+const removedElements = hobbies.splice(-2, 1);
+console.log(hobbies);
 
 // APPENDING ARRAYS
 
-// const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
-// // const storedResults = testResults.slice(2);
-// const storedResults = testResults.concat([3.99, 2]);
+const testResults = [1, 5.3, 1.5, 10.99, -5, 10];
+// const storedResults = testResults.slice(2);
+const storedResults = testResults.concat([3.99, 2]);
 
-// testResults.push(5.91);
+testResults.push(5.91);
 
-// console.log(storedResults, testResults);
+console.log(storedResults, testResults);
 
-// // INDEX
+// INDEX
 
-// console.log(testResults.indexOf(1.5));
+console.log(testResults.indexOf(1.5));
+console.log(testResults.lastIndexOf(1.5));
+console.log(testResults.includes(1.5)); // true/false
 
-// const personData = [{ name: 'Max' }, { name: 'Manuel' }];
-// console.log(personData.indexOf({ name: 'Manuel' }));
 
-// const manuel = personData.find((person, idx, persons) => {
-// 	return person.name === 'Manuel';
-// });
+const personData = [{ name: 'Max' }, { name: 'Manuel' }];
+console.log(personData.indexOf({ name: 'Manuel' }));
 
-// manuel.name = 'Anna';
+//  FIND / FINDINDEX
+const manuel = personData.find((person, idx, persons) => {
+	return person.name === 'Manuel';
+});
 
-// console.log(manuel, personData);
+manuel.name = 'Anna';
 
-// const maxIndex = personData.findIndex((person, idx, persons) => {
-// 	return person.name === 'Max';
-// });
+console.log(manuel, personData);
 
-// console.log(maxIndex);
+const maxIndex = personData.findIndex((person, idx, persons) => {
+	return person.name === 'Max';
+});
+
+console.log(maxIndex);
 
 // FOR EACH AND MAP
 
-// const prices = [10.99, 5.99, 3.99, 6.59];
-// const tax = 0.19;
-// const taxAdjustedPrices = [];
+const pricesEach = [10.99, 5.99, 3.99, 6.59];
+const taxEach = 0.19;
+const taxAdjustedPricesEach = [];
 
-// // for (const price of prices) {
-// //   taxAdjustedPrices.push(price * (1 + tax));
-// // }
+// for (const price of pricesEach) {
+//   taxAdjustedPricesEach.push(price * (1 + taxEach));
+// }
 
-// prices.forEach((price, idx, prices) => {
-// 	const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
-// 	taxAdjustedPrices.push(priceObj);
-// });
+pricesEach.forEach((price, idx, prices) => {
+	const priceObj = { index: idx, taxAdjPrice: price * (1 + taxEach) };
+	taxAdjustedPricesEach.push(priceObj);
+});
 
-// console.log(taxAdjustedPrices);
+console.log(taxAdjustedPricesEach);
 
 const prices = [10.99, 5.99, 3.99, 6.59];
 const tax = 0.19;
@@ -106,4 +111,22 @@ const taxAdjustedPrices = prices.map((price, idx, prices) => {
 	return priceObj;
 });
 
-console.log(prices, taxAdjustedPrices);
+console.log(pricesEach, taxAdjustedPrices);
+
+// SORT
+
+const sortedPrices = prices.sort((a, b) => {
+	if (a > b) {
+		return -1;
+	} else if (a === b) {
+		return 0;
+	} else {
+		return 1;
+	}
+});
+// console.log(sortedPrices.reverse());
+console.log(sortedPrices); // .reverse());
+
+// FILTER
+const filteredArray = prices.filter(p => p > 6);
+console.log(filteredArray);
