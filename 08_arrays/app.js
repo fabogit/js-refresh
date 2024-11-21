@@ -155,6 +155,32 @@ const transformedData = data.split(';');
 transformedData[1] = +transformedData[1];
 console.log(transformedData);
 
-const nameFragements = ['Jon', 'Doe'];
-const name = nameFragements.join(' ');
-console.log(name);
+const nameFragments = ['Jon', 'Doe'];
+const fullName = nameFragments.join(' ');
+console.log(fullName);
+
+// REST & SPREAD
+const copiedNameFragments = [...nameFragments];
+nameFragments.push('Mr');
+console.log(nameFragments, copiedNameFragments);
+
+console.log(Math.min(...prices));
+
+const persons = [{ name: 'Max', age: 30 }, { name: 'Mark', age: 31 }];
+const copiedPersons = persons.map(person => ({
+	name: person.name,
+	age: person.age
+}));
+
+persons.push({ name: 'Anna', age: 29 });
+persons[0].age = 31;
+
+console.log(persons, copiedPersons);
+
+// DESTRUCTURING
+const variables = ['if', 'else', 'elif', 42];
+// const one = variables[0];
+// const two = variables[1];
+
+const [one, two, ...others] = variables;
+console.log(one, two, others);
