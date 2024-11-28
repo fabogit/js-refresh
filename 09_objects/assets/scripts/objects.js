@@ -1,18 +1,49 @@
-let person = {
-	name: 'Jesus',
-	age: 33,
-	hobbies: ['Preach', 'Wine'],
-	greet: function () {
-		alert('Hi there!');
+const addMovieBtn = document.getElementById('add-movie-btn');
+const searchBtn = document.getElementById('search-btn');
+
+const movies = [];
+
+const renderMovies = () => {
+	const movieList = document.getElementById('movie-list');
+
+	if (movies.length === 0) {
+		movieList.classList.remove('visible');
+		return;
+	} else {
+		movieList.classList.add('visible');
 	}
+	movieList.innerHTML = '';
+
+	movies.forEach((movie) => {
+		const movieEl = document.createElement('li');
+		movieEl.textContent = movie.info.title;
+		movieList.append(movieEl);
+	});
 };
 
-// Adding, Modifying & Deleting Properties
+const addMovieHandler = () => {
+	const title = document.getElementById('title').value;
+	const extraName = document.getElementById('extra-name').value;
+	const extraValue = document.getElementById('extra-value').value;
 
-// person.age = 31;
-delete person.age;
-// person.age = undefined;
-// person.age = null;
-person.isAdmin = true;
+	if (
+		title.trim() === '' ||
+		extraName.trim() === '' ||
+		extraValue.trim() === ''
+	) {
+		return;
+	}
 
-console.log(person);
+	const newMovie = {
+		info: {
+			title,
+			[extraName]: extraValue
+		},
+		id: Math.random()
+	};
+
+	movies.push(newMovie);
+	renderMovies();
+};
+
+addMovieBtn.addEventListener('click', addMovieHandler);
