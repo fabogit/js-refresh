@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('button');
+const button = document.querySelector('button');
 
 // button.onclick = function() {
 
@@ -36,5 +36,22 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', event => {
 	event.preventDefault();
+	console.log(event);
+});
+
+const div = document.querySelector('div');
+
+div.addEventListener('mouseenter', event => {
+	console.log('DIV');
+	console.log(event);
+},
+	// register to capture phase
+	// true
+);
+
+button.addEventListener('mouseenter', event => {
+	event.stopPropagation();
+	// event.stopImmediatePropagation()
+	console.log('BUTTON');
 	console.log(event);
 });
