@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll('button');
 
 // button.onclick = function() {
+
 // };
 
 const buttonClickHandler = event => {
@@ -23,10 +24,17 @@ const boundFn = buttonClickHandler.bind(this);
 //   button.removeEventListener('click', buttonClickHandler);
 // }, 2000);
 
-buttons.forEach(btn => {
-	btn.addEventListener('mouseenter', buttonClickHandler);
-});
+// buttons.forEach(btn => {
+//   btn.addEventListener('mouseenter', buttonClickHandler);
+// });
 
-window.addEventListener('scroll', event => {
+// window.addEventListener('scroll', event => {
+//   console.log(event);
+// });
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', event => {
+	event.preventDefault();
 	console.log(event);
 });
