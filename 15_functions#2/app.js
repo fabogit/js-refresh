@@ -40,3 +40,32 @@ const calculateIncomeTaxAmount = createTaxCalculator(0.25);
 
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
+
+// Clojures
+let userName = 'Max';
+
+function greetUser() {
+	let name = 'Anna';
+	console.log('Hi ' + name);
+}
+
+let name = 'Maximilian';
+userName = 'Manuel';
+greetUser();
+
+// Scope and IIFE
+
+(function () {
+	var age = 30;
+	console.log(age); // 30
+})();
+
+console.log(age); // Error: "age is not defined"
+
+// block scope
+{
+	const age = 30;
+	console.log(age); // 30
+}
+
+console.log(age); // Error: "age is not defined"
