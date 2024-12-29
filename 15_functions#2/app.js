@@ -69,3 +69,58 @@ console.log(age); // Error: "age is not defined"
 }
 
 console.log(age); // Error: "age is not defined"
+
+// Recursion
+function powerOf(x, n) {
+
+	// if (n === 1) {
+	// 	return x;
+	// }
+	// return x * powerOf(x, n - 1);
+
+	return n === 1 ? x : x * powerOf(x, n - 1);
+}
+
+console.log(powerOf(2, 3)); // 2 * 2 * 2
+
+
+const myself = {
+	name: 'Me',
+	friends: [
+		{
+			name: 'Name1',
+			friends: [
+				{
+					name: 'Name2',
+					friends: [
+						{
+							name: 'Name3'
+						},
+						{
+							name: 'Name4'
+						}
+					]
+				}
+			]
+		},
+		{
+			name: 'Name5'
+		}
+	]
+};
+
+function getFriendNames(person) {
+	const collectedNames = [];
+
+	if (!person.friends) {
+		return [];
+	}
+
+	for (const friend of person.friends) {
+		collectedNames.push(friend.name);
+		collectedNames.push(...getFriendNames(friend));
+	}
+	return collectedNames;
+}
+
+console.log(getFriendNames(myself));
