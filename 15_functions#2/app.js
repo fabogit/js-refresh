@@ -88,23 +88,28 @@ const myself = {
 	name: 'Me',
 	friends: [
 		{
-			name: 'Name1',
+			name: 'Friend1',
 			friends: [
 				{
-					name: 'Name2',
+					name: 'Name1',
 					friends: [
 						{
-							name: 'Name3'
+							name: 'Name2'
 						},
 						{
-							name: 'Name4'
+							name: 'Name3',
+							friends: [
+								{
+									name: 'Name4'
+								},
+							]
 						}
 					]
 				}
 			]
 		},
 		{
-			name: 'Name5'
+			name: 'Friend2'
 		}
 	]
 };
