@@ -41,21 +41,39 @@ const setTimer = (duration) => {
   return promise;
 };
 
-function trackUserHandler() {
-  let positionData;
+// function trackUserHandler() {
+//   let positionData;
 
-  getPosition()
-    .then((posData) => {
-      positionData = posData;
-      return setTimer(2000);
-    })
-    .catch((err) => {
-      console.log(err);
-      return 'on we go...';
-    })
-    .then((data) => {
-      console.log(data, positionData);
-    });
+//   getPosition()
+//     .then((posData) => {
+//       positionData = posData;
+//       return setTimer(2000);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       return 'on we go...';
+//     })
+//     .then((data) => {
+//       console.log(data, positionData);
+//     });
+//   setTimer(1000).then(() => {
+//     console.log('Timer done!');
+//   });
+//   console.log('Getting position...');
+// }
+
+// async/await
+async function trackUserHandler() {
+  let posData;
+  let timerData;
+  try {
+    posData = await getPosition();
+    timerData = await setTimer(2000);
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(timerData, posData);
+
   setTimer(1000).then(() => {
     console.log('Timer done!');
   });
@@ -63,3 +81,28 @@ function trackUserHandler() {
 }
 
 button.addEventListener('click', trackUserHandler);
+
+// Return fastest promise to resolve
+// Promise.race([getPosition(), setTimer(1000)]).then(data => {
+//   console.log(data);
+// });
+
+// Promise.all([getPosition(), setTimer(1000)])I
+//   .then(promiseData => {
+//     console.log(promiseData);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+Promise.allSettled(
+  [
+    getPosition(),
+    setTimer(1000)
+  ]
+)
+  .then(promiseData => {
+    console.log(promiseData);
+  }).catch((err) => {
+    console.log(err);
+  });
