@@ -97,3 +97,47 @@ postList.addEventListener('click', event => {
     );
   }
 });
+
+
+function sendHttpRequestFD(method, url, data) {
+  return fetch(url, {
+    method: method,
+    body: data,
+    // using form data
+    // body: JSON.stringify(data),
+    // headers: {
+    //   'Content-Type': 'application/json'
+    // }
+  })
+    .then(response => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      } else {
+        return response.json().then(errData => {
+          console.log(errData);
+          throw new Error('Something went wrong - server-side.');
+        });
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      throw new Error('Something went wrong!');
+    });
+}
+
+async function createPostFD(title, content) {
+  const userId = Math.random();
+  const post = {
+    title: title,
+    body: content,
+    userId: userId
+  };
+
+  // form data
+  const fd = new FormData(form);
+  // fd.append('title', title);
+  // fd.append('body', content);
+  fd.append('userId', userId);
+
+  sendHttpRequest('POST', 'https://jsonplaceholder.typicode.com/posts', fd);
+}
