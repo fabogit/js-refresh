@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
 	// Entry point of the application
 	entry: './src/app.js',
-	devtool: 'source-map', //'cheap-module-source-map', // Enable sourcemap for debug
+	devtool: 'cheap-module-source-map', // Enable sourcemap for debug
 	// Output configuration for generated files
 	output: {
 		path: path.resolve(__dirname, 'dist'), // Directory for build output
@@ -72,5 +72,5 @@ module.exports = {
 		compress: true, // Enable gzip compression for served files
 	},
 	// Set mode: 'development' for debugging, 'production' for optimized builds
-	mode: 'development',
+	mode: 'production',
 };
