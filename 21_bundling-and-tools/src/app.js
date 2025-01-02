@@ -1,4 +1,5 @@
 import { ProjectList } from './App/ProjectList.js';
+import './app.css';
 
 globalThis.DEFAULT_VALUE = 'MAX';
 
@@ -12,12 +13,6 @@ class App {
     finishedProjectsList.setSwitchHandlerFunction(
       activeProjectsList.addProject.bind(activeProjectsList)
     );
-
-    // const timerId = setTimeout(this.startAnalytics, 3000);
-
-    // document.getElementById('stop-analytics-btn').addEventListener('click', () => {
-    //   clearTimeout(timerId);
-    // });
   }
 
   static startAnalytics() {

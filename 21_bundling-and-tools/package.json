@@ -1,21 +1,30 @@
 {
-  "name": "21_bundling-and-tools",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
+  "description": "",
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "eslint": "^8.57.1",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
-    "eslint-plugin-promise": "^6.0.0",
-    "globals": "^15.14.0"
-  }
+    "compression-webpack-plugin": "^11.1.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.11",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "21_bundling-and-tools",
+  "private": "true",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --open",
+    "serve": "webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
 }
