@@ -22,7 +22,8 @@ header {
   background: #b6004c;
 }
 
-label, input {
+label,
+input {
   display: block;
   width: 100%;
 }
@@ -51,7 +52,8 @@ button {
   padding: 0.5rem 2rem;
 }
 
-button:focus, input:focus {
+button:focus,
+input:focus {
   outline: none;
 }
 
